@@ -58,15 +58,3 @@ def decode(text, rot=0):
     return decode_text
 
 
-
-encode('Hello, Python3!',27)
-#encode('Hello, Python3!',30)
-encode("Gur pyrnare naq avpre gur cebtenz, gur snfgre vg'f tbvat gb eha. Naq vs vg qbrfa'g, vg'yy or rnfl gb znxr vg snfg.", 13)
-encode('There is no programming language, no matter how structured, that will prevent programmers from making bad programs.', 25)
-#encode('Ifmmp, Qzuipo3!',1)
-
-
-decode('Gdkkn, Oxsgnm3!',26000000001)
-decode("The cleaner and nicer the program, the faster it's going to run. And if it doesn't, it'll be easy to make it fast.",13)
-decode('Sgdqd hr mn oqnfqzllhmf kzmftzfd, mn lzssdq gnv rsqtbstqdc, sgzs vhkk oqdudms oqnfqzlldqr eqnl lzjhmf azc oqnfqzlr.',25)
-
