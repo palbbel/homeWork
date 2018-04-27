@@ -102,7 +102,7 @@ def menu_list_task():
         menu_restart_task(id_task())
     elif option == '5':
         basic_menu()
-    #option(list_correct, type_menu)
+
 
 def id_task():
     decor()

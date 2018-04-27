@@ -85,9 +85,8 @@ def insert_default(path_db):
     query12 = "INSERT INTO type_task (description) VALUES ('Прочее')"
 
 
-    #db_objects = [tbl_task, tbl_status, tbl_importance, tbl_type, tbl_relation, tbl_communication]
     db_insert_default = [query1, query2, query3, query4, query5, query6,\
-                         query7, query8, query9, query10, query11, query12, query12]
+                         query7, query8, query9, query10, query11, query12, query13]
     db(path_db, db_insert_default)
 
     return
@@ -96,11 +95,8 @@ def insert_default(path_db):
 def db(path_db, list_scpipts):
     with sqlite3.connect(path_db) as conn:
         for sql in list_scpipts:
-            #print(sql)
             conn.execute(sql)
 
-        #for sql_insert in db_insert_default:
-        #    conn.execute(sql_insert)
 
 
 
