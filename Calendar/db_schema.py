@@ -6,14 +6,13 @@ def schema_db(path_db):
     # таблица задач
     tbl_task = '''
       CREATE TABLE IF NOT EXISTS task (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name_task TEXT NOT NULL,
-        description TEXT NOT NULL DEFAULT '',
+        task_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        description TEXT,
         created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        start_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        start_date DATETIME,
         due_date DATETIME,
         end_date DATETIME,
-        comment TEXT NOT NULL DEFAULT ''
+        comment TEXT
       )
     '''
 
@@ -53,10 +52,10 @@ def schema_db(path_db):
     # взаимосвязь сущностей
     tbl_communication = '''
       CREATE TABLE IF NOT EXISTS communication_task (
-        task_id INTEGER PRIMARY KEY,
-        type_type_id INTEGER,
+        task_task_id INTEGER PRIMARY KEY,
         status_status_id INTEGER,
-        imprt_id INTEGER
+        type_type_id INTEGER,
+        imprt_imprt_id INTEGER
       )
       '''
 
@@ -70,9 +69,9 @@ def schema_db(path_db):
 
 def insert_default(path_db):
     # Насыщение по умолчанию
-    query1 = "INSERT INTO status_task (description) VALUES ('Закрыто')"
-    query2 = "INSERT INTO status_task (description) VALUES ('Открыто')"
-    query13 = "INSERT INTO status_task (description) VALUES ('В работе')"
+    query1 = "INSERT INTO status_task (description) VALUES ('Закрытa')"
+    query2 = "INSERT INTO status_task (description) VALUES ('Открытa-не запущена')"
+    query13 = "INSERT INTO status_task (description) VALUES ('Открытa-в работе')"
     query3 = "INSERT INTO importance_task (description) VALUES ('Обычная')"
     query4 = "INSERT INTO importance_task (description) VALUES ('Важная')"
     query5 = "INSERT INTO importance_task (description) VALUES ('Очень важная')"
