@@ -90,7 +90,7 @@ def convert(st=None):
     return out_str
 
 
-def calc(str=None):
+def calc(str):
     list_operand = ['+', '-', '*', '/', '//', '^', '%']
     value = convert(str)
     value_list = value.split(' ')
@@ -133,10 +133,8 @@ def calc(str=None):
 
 
 
-    #print(resal)
     return resal
 
 
 if __name__ == '__main__':
-    #str = (input(':'))
-    calc(input(':'))
+    print(calc(input()))
