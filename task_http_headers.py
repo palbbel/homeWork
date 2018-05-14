@@ -2,9 +2,7 @@ import json
 import re
 
 
-def http_headers_to_json():
-    path_src = input()
-    path_dest = input()
+def http_headers_to_json(path_src, path_dest):
     data_dict = {}
 
     with open(path_src) as f:
@@ -37,5 +35,7 @@ def http_headers_to_json():
         json.dump(data_dict, f, indent=4)
 
 if __name__ == '__main__':
-    http_headers_to_json()
+    path_src = input()
+    path_dest = input()
+    http_headers_to_json(path_src, path_dest)
 
