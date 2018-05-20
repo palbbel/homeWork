@@ -1,6 +1,7 @@
 import hashlib
 from functools import wraps
 
+memory = {}
 
 def make_token(username, password):
     s = username + password
@@ -28,17 +29,22 @@ def login_passw():
 def login_required(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
-        n = 3
-        while n:
-            username, password = login_passw()
-            hash_pass = make_token(username, password)
-            hash_pass_file = get_pass()
-            if hash_pass_file == hash_pass:
+        if not memory:
+            n = 3
+            while n:
+                username, password = login_passw()
+                hash_pass = make_token(username, password)
+                hash_pass_file = get_pass()
+                if hash_pass_file == hash_pass:
+                    memory['hash'] = hash_pass
+                    res = func(*args, **kwargs)
+                    return res
+                else:
+                    n -= 1
+        else:
+            if memory['hash'] == get_pass():
                 res = func(*args, **kwargs)
                 return res
-            else:
-                n -= 1
-
         return None
     return wrapper
 
@@ -54,7 +60,6 @@ def f2():
 
 
 if __name__ == '__main__':
-
 
     f1()
     f2()
