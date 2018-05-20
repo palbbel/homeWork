@@ -9,10 +9,7 @@ def password_generator(n):
         yield  passw
         n -= 1
 
-
-
 if __name__ == '__main__':
     n = int(input())
     ''.join(i for i in password_generator(n))
 
-    
