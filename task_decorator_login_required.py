@@ -54,9 +54,7 @@ def f2():
 
 
 if __name__ == '__main__':
-    username = input()
-    password = input()
-    file(username, password)
+
 
     f1()
     f2()
