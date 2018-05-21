@@ -1,0 +1,68 @@
+1. Функциональный подход уже рассмотрели и добавить нечего. Возможно добавить проверку на наличие файла.
+
+2. ООП
+
+class LogFactory():	
+	# ведение логирования работы
+	
+	def __init__(self,...):
+	 
+	def get_loggers(self,...):
+	
+	def get_logging_level(self, ...):
+	
+
+class ParsingConfig:
+	# возможно будет свой конфиг, обрабатываем его и получаем параметры работы нашего сервиса
+
+	def __init__(self, ...):
+	# инициализация параметров
+	
+	def parsing_param(self):
+	
+
+class File()
+
+	def __init__(self,.......):
+	# инициализация параметров
+	
+	def get_list_config_file(self,.....):
+	# получения списка файлов
+	
+	
+	def  check_file(self,.....):
+	# проверка, что файл существует по указанному пути
+	
+	
+	def get_format_file(self, ......):
+	# получение формата файла
+
+	
+	# В зависимости от формата обращаемся к необходимому методу зачитывания
+	def read_file_format1(self,.....):
+	
+	
+	def read_file_format2(self,.....):
+	
+	
+	def read_file_format3(self,.....):
+	
+	
+	def read_file_format4(self,.....):
+	
+	
+	def get_name_write_file(self,....):
+	# формирование имени и пути файла, в который записываем параметры
+	
+	
+	def write_param_file(self,......):
+	# запись параметров в файл
+	
+	
+	
+	
+if __name__ == '__main__':
+	... 
+	
+	
+При появлении новых форматов добавляем метод зачитывания def read_file_formatN(self,.....):
