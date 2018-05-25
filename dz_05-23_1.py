@@ -46,11 +46,11 @@ class ParamHandler(metaclass=ABCMeta):
 
 
 def add_type_decor(name):
-    def decorator(ParamHandler):
+    def decorator(cls):
         #@wraps(ParamHandler)
         #def wrapper(*args, **kwargs):
-            return ParamHandler.add_type(name, ParamHandler)
-        #return wrapper
+        ParamHandler.add_type(name, cls)
+        return cls
     return decorator
 
 
