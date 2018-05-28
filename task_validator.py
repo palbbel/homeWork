@@ -44,7 +44,7 @@ def add_type_decor(name):
     return decorator
 
 
-@add_type_decor('date')
+@add_type_decor('datetime')
 class DateTimeValidator(Validator):
     def validate(self, value):
         date = value.replace('/', '-').replace('.', '-').replace('  ', ' ').strip()
@@ -88,8 +88,8 @@ class EMailValidator(Validator):
     #Validator.add_type('', EMailValidator)
     #Validator.add_type('email', ValidatorException)
 
-    # validator = Validator.get_instance('date')
-    # print(validator.validate('1.9.2017'))
+    #validator = Validator.get_instance('datetime')
+    #print(validator.validate('1.9.2017'))
     # print(validator.validate('01/09/2017 12:00'))
     # print(validator.validate('2017-09-01 12:00:00'))
 
