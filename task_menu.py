@@ -54,6 +54,7 @@ class ShowCommand(Command):
         self.task_id = task_id
 
 
+
 class ListCommand(Command):
     def __init__(self):
         pass
@@ -63,9 +64,6 @@ class ListCommand(Command):
 class CommandException(Exception):
     pass
 
-
-    def execute(self, *args, **kwargs):
-        pass
 
 
 
