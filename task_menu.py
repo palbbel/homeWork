@@ -34,15 +34,17 @@ class Menu(metaclass=ABCMeta):
             raise CommandException('Command with name "{}" not found'.format(name))
 
 
-    def __next__(self):
-        if
-            
-        else:
-            raise StopIteration
-
-
     def __iter__(self):
         return self
+
+
+    def __next__(self):
+        if self.ind >= len(list(self.commands.items())):
+            raise StopIteration
+
+        command = list(self.commands.items())[self.ind]
+        self.ind += 1
+        return command
 
 
 
@@ -67,10 +69,10 @@ class CommandException(Exception):
 
 
 
-if __name__ == '__main__':
-    menu = Menu()
-    menu.add_command('show', ShowCommand)
-    menu.add_command('list', ListCommand)
-    menu.execute('show', 1)
-    menu.execute('list')
-    #menu.execute('unknown')
+# if __name__ == '__main__':
+#     menu = Menu()
+#     menu.add_command('show', ShowCommand)
+#     menu.add_command('list', ListCommand)
+#     menu.execute('show', 1)
+#     menu.execute('list')
+#     menu.execute('unknown')
