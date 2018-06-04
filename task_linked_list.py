@@ -12,7 +12,6 @@ class LinkedList(object):
 
     def insert(self, index, value):
         self.list = self.list[:index] + (value,) + self.list[index:]
-        print(self.list)
 
 
     def get(self, index):
@@ -29,7 +28,6 @@ class LinkedList(object):
             n += 1
         if n < len(self.list):
             self.list = self.list[:n] + self.list[n+1:]
-        print(self.list)
 
 
     def remove_at(self, index):
@@ -37,13 +35,11 @@ class LinkedList(object):
             raise IndexError
         element = self.list[index]
         self.list = self.list[:index] + self.list[index + 1:]
-        print(self.list)
         return element
 
 
     def clear(self):
         self.list = ()
-        print(self.list)
 
 
     def contains(self, value):
