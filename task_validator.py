@@ -16,7 +16,7 @@ class Validator(metaclass=ABCMeta):
     @classmethod
     def add_type(cls, name, klass):
         if not name:
-            raise ValidatorException('Type must have a name!')
+            raise ValidatorException('Validator must have a name!')
 
         if not issubclass(klass, Validator):
             raise ValidatorException('Class "{}" is not Validator!'.format(klass))
