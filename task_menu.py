@@ -52,7 +52,7 @@ class Menu(metaclass=ABCMeta):
 
 class ShowCommand(Command):
     def __init__(self, task_id):
-        pass
+        self.task_id = task_id
 
 
 class ListCommand(Command):
