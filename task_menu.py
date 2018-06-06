@@ -2,11 +2,13 @@ from abc import ABCMeta, abstractmethod
 
 class Command(metaclass=ABCMeta):
 
-    @abstractmethod
-    def execute(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         pass
 
 
+    @abstractmethod
+    def execute(self):
+        pass
 
 
 class Menu(metaclass=ABCMeta):
@@ -16,7 +18,6 @@ class Menu(metaclass=ABCMeta):
         self.ind = 0
 
 
-    #@classmethod
     def add_command(self, name, klass):
         if not name:
             raise CommandException('Command must have a name!')
@@ -25,11 +26,11 @@ class Menu(metaclass=ABCMeta):
         self.commands[name] = klass
 
 
-    #@classmethod
     def execute(self, name, *args, **kwargs):
         command = self.commands.get(name)
         if command:
-            command.execute(args, kwargs)
+            com = command(*args, **kwargs)
+            return com.execute()
         else:
             raise CommandException('Command with name "{}" not found'.format(name))
 
@@ -51,14 +52,12 @@ class Menu(metaclass=ABCMeta):
 
 class ShowCommand(Command):
     def __init__(self, task_id):
-        self.task_id = task_id
-
+        pass
 
 
 class ListCommand(Command):
     def __init__(self):
         pass
-
 
 
 class CommandException(Exception):
@@ -67,10 +66,14 @@ class CommandException(Exception):
 
 
 
+
+
 # if __name__ == '__main__':
 #     menu = Menu()
 #     menu.add_command('show', ShowCommand)
 #     menu.add_command('list', ListCommand)
-#     menu.execute('show', 1)
-#     menu.execute('list')
 #     menu.execute('unknown')
+#     for item in menu:
+#         print(item)
+#     for name, command in menu:
+#         print(name, command)
