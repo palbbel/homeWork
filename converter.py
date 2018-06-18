@@ -40,6 +40,7 @@ class MainWindow(QMainWindow):
 
         self.convertBtn = QPushButton('Перевести', self)
         self.convertBtn.setEnabled(False)
+        self.resBtn = QPushButton('Сброс', self)
 
 
 
@@ -49,13 +50,12 @@ class MainWindow(QMainWindow):
 
         self.convertBtn.clicked.connect(self.onClickConvertBtn)
         self.convertBtn.setAutoDefault(True)
+        self.resBtn.clicked.connect(self.onClickResBtn)
 
 
-        # def keyPressEvent(self, e):
-        #
-        #     self.convertBtn.keyPressEvent(e)
-        #     if self.convertBtn.key() == Qt.Key_Return:
-        #         self.onClickConvertBtn()
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Return:
+            self.onClickConvertBtn()
 
 
     def _initLayouts(self):
@@ -68,12 +68,13 @@ class MainWindow(QMainWindow):
         self.mainLayout.addWidget(self.resultLabel)
         self.mainLayout.addWidget(self.resultAmountEdit)
         self.mainLayout.addWidget(self.convertBtn)
+        self.mainLayout.addWidget(self.resBtn)
 
         self.setCentralWidget(w)
 
 
 
-    @QtCore.pyqtSlot()
+    #@QtCore.pyqtSlot()
     def onClickConvertBtn(self):
         # sender = self.sender()
         if self.srcAmountEdit != 0:
@@ -84,11 +85,11 @@ class MainWindow(QMainWindow):
             value = self.resultAmountEdit.value()
             if value:
                 self.srcAmountEdit.setValue(value * Course().get())
-        #value = self.srcAmountEdit.value()
 
-        #if value:
-            #self.resultAmountEdit.setValue(value / Course().get())
 
+    def onClickResBtn(self):
+        self.srcAmountEdit.setValue(0)
+        self.resultAmountEdit.setValue(0)
 
 
     def controlValue(self):
